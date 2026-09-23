@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#050608" />
+  <meta name="description" content="IRHS Tech Club two-laptop synchronized QR display wall." />
+  <title>IRHS Tech Club // Duo Display</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="setupView" class="setup-shell">
+    <nav class="topbar">
+      <div class="brand"><span class="brand-mark">IR</span><span>IRHS <b>TECH CLUB</b></span></div>
+      <div class="status-chip"><span></span> TWO-LAPTOP DISPLAY</div>
+    </nav>
+
+    <section class="hero">
+      <div class="eyebrow">DUAL SCREEN SOCIAL WALL</div>
+      <h1>Two laptops.<br><em>One continuous display.</em></h1>
+      <p>Put laptop 1 on the left and laptop 2 on the right. The QR cards stay centered across the combined wall while the message moves continuously through both screens.</p>
+      <div class="hero-actions">
+        <button id="createRoomBtn" class="btn primary">Create LEFT screen</button>
+        <button id="showJoinBtn" class="btn ghost">Join as RIGHT screen</button>
+      </div>
+    </section>
+
+    <section id="joinPanel" class="join-panel hidden">
+      <div><small>RIGHT LAPTOP</small><h2>Enter the room code from laptop 1</h2></div>
+      <div class="join-form">
+        <input id="roomInput" maxlength="6" placeholder="A7K2Q9" autocomplete="off" spellcheck="false" />
+        <button id="joinRoomBtn" class="btn primary">Join</button>
+      </div>
+      <p id="joinError" class="error"></p>
+    </section>
+
+    <section class="preview-wall">
+      <div class="preview-half"><span>01 / LEFT</span><strong>INSTAGRAM</strong></div>
+      <div class="preview-seam"></div>
+      <div class="preview-half"><span>02 / RIGHT</span><strong>DISCORD</strong></div>
+      <div class="preview-ticker">FOLLOW • JOIN • BUILD • CREATE • IRHS TECH CLUB •</div>
+    </section>
+
+    <section class="steps">
+      <div><b>01</b><span>Create the room on the left laptop.</span></div>
+      <div><b>02</b><span>Join the same room on the right laptop.</span></div>
+      <div><b>03</b><span>Fullscreen both browsers and align the seam.</span></div>
+    </section>
+  </main>
+
+  <main id="wallView" class="wall-view hidden">
+    <div id="viewport" class="viewport">
+      <div id="stage" class="stage">
+        <div class="grid"></div>
+        <div class="orb orb-a"></div><div class="orb orb-b"></div>
+        <section class="display-content">
+          <div class="wall-heading">
+            <span>IROQUOIS RIDGE HIGH SCHOOL</span>
+            <h1>TECH CLUB</h1>
+            <p>Scan. Follow. Join. Build.</p>
+          </div>
+          <div id="qrGrid" class="qr-grid"></div>
+        </section>
+        <div class="ticker-shell top-ticker"><div id="tickerTop" class="ticker-track"></div></div>
+        <div class="ticker-shell bottom-ticker"><div id="tickerBottom" class="ticker-track"></div></div>
+        <div id="seamGuide" class="seam-guide"><span>SCREEN SEAM</span></div>
+      </div>
+    </div>
+
+    <div id="connectionBadge" class="connection-badge"><span></span><b>CONNECTING</b></div>
+    <button id="toggleControlsBtn" class="floating-control" title="Controls">⌘</button>
+
+    <aside id="controlPanel" class="control-panel">
+      <div class="panel-head">
+        <div><small>DISPLAY CONTROL</small><h2 id="roleTitle">LEFT SCREEN</h2></div>
+        <button id="closeControlsBtn" class="icon-btn">×</button>
+      </div>
+
+      <div class="room-card"><div><small>ROOM CODE</small><strong id="roomCodeLabel">------</strong></div><button id="copyRoomBtn" class="mini-btn">COPY</button></div>
+
+      <div id="hostControls">
+        <div class="control-block">
+          <label for="tickerText">MOVING TEXT</label>
+          <textarea id="tickerText" rows="3">FOLLOW @IRHS_TECH.CLUB  •  JOIN OUR DISCORD  •  BUILD SOMETHING COOL  •  WEDNESDAYS AT LUNCH  •  IRHS TECH CLUB</textarea>
+        </div>
+        <div class="two-col control-block">
+          <div><label for="tickerSpeed">TEXT SPEED</label><input id="tickerSpeed" type="range" min="12" max="60" value="28" /></div>
+          <div><label for="cardScale">QR SIZE</label><input id="cardScale" type="range" min="70" max="125" value="100" /></div>
+        </div>
+
+        <div class="control-block">
+          <label for="instagramUrl">INSTAGRAM QR</label>
+          <input id="instagramUrl" type="url" value="https://www.instagram.com/irhs_tech.club/" />
+          <small>@irhs_tech.club</small>
+        </div>
+        <div class="control-block">
+          <label for="discordUrl">DISCORD QR</label>
+          <input id="discordUrl" type="url" placeholder="Paste the Tech Club Discord invite here" />
+          <small>Paste the exact invite once; both laptops update together.</small>
+        </div>
+        <div class="control-block">
+          <label for="websiteUrl">WEBSITE QR</label>
+          <input id="websiteUrl" type="url" value="https://irhs-tech-club.vercel.app/" />
+          <small>The Google Classroom QR is intentionally excluded.</small>
+        </div>
+      </div>
+
+      <div class="control-block">
+        <label>THIS SCREEN ALIGNMENT</label>
+        <div class="two-col">
+          <div><label for="nudgeX">X NUDGE</label><input id="nudgeX" type="range" min="-180" max="180" value="0" /></div>
+          <div><label for="nudgeY">Y NUDGE</label><input id="nudgeY" type="range" min="-120" max="120" value="0" /></div>
+        </div>
+        <div class="two-col buttons-row"><button id="toggleFitBtn" class="mini-btn">FIT: CONTAIN</button><button id="toggleGuideBtn" class="mini-btn">SEAM: ON</button></div>
+      </div>
+
+      <div class="panel-actions">
+        <button id="fullscreenBtn" class="btn primary">Enter fullscreen</button>
+        <button id="leaveBtn" class="btn ghost">Leave room</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
