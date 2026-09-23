@@ -3,125 +3,118 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="theme-color" content="#050608" />
-  <meta name="description" content="IRHS Tech Club two-laptop synchronized QR display wall." />
-  <title>IRHS Tech Club // Duo Display</title>
+  <meta name="theme-color" content="#030405" />
+  <meta name="description" content="IRHS Tech Club two-laptop digital poster board." />
+  <title>IRHS Tech Club // Poster Wall</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main id="setupView" class="setup-shell">
-    <nav class="topbar">
-      <div class="brand"><span class="brand-mark">IR</span><span>IRHS <b>TECH CLUB</b></span></div>
-      <div class="status-chip"><span></span> TWO-LAPTOP DISPLAY</div>
-    </nav>
-
-    <section class="hero">
-      <div class="eyebrow">DUAL SCREEN SOCIAL WALL</div>
-      <h1>Two laptops.<br><em>One continuous display.</em></h1>
-      <p>Put laptop 1 on the left and laptop 2 on the right. The QR cards stay centered across the combined wall while the message moves continuously through both screens.</p>
-      <div class="hero-actions">
-        <button id="createRoomBtn" class="btn primary">Create LEFT screen</button>
-        <button id="showJoinBtn" class="btn ghost">Join as RIGHT screen</button>
+  <main id="launcher" class="launcher">
+    <div class="launcher-grid"></div>
+    <section class="launcher-card">
+      <div class="launcher-kicker">IRHS TECH CLUB // DIGITAL POSTER BOARD</div>
+      <h1>Two laptops.<br><span>One club poster.</span></h1>
+      <p>Put the laptops side-by-side. Open this page on both. Choose LEFT on laptop 1 and RIGHT on laptop 2.</p>
+      <div class="side-buttons">
+        <button data-side="left"><small>LAPTOP 01</small><strong>LEFT HALF</strong></button>
+        <button data-side="right"><small>LAPTOP 02</small><strong>RIGHT HALF</strong></button>
       </div>
-    </section>
-
-    <section id="joinPanel" class="join-panel hidden">
-      <div><small>RIGHT LAPTOP</small><h2>Enter the room code from laptop 1</h2></div>
-      <div class="join-form">
-        <input id="roomInput" maxlength="6" placeholder="A7K2Q9" autocomplete="off" spellcheck="false" />
-        <button id="joinRoomBtn" class="btn primary">Join</button>
-      </div>
-      <p id="joinError" class="error"></p>
-    </section>
-
-    <section class="preview-wall">
-      <div class="preview-half"><span>01 / LEFT</span><strong>INSTAGRAM</strong></div>
-      <div class="preview-seam"></div>
-      <div class="preview-half"><span>02 / RIGHT</span><strong>DISCORD</strong></div>
-      <div class="preview-ticker">FOLLOW • JOIN • BUILD • CREATE • IRHS TECH CLUB •</div>
-    </section>
-
-    <section class="steps">
-      <div><b>01</b><span>Create the room on the left laptop.</span></div>
-      <div><b>02</b><span>Join the same room on the right laptop.</span></div>
-      <div><b>03</b><span>Fullscreen both browsers and align the seam.</span></div>
+      <div class="launcher-note">The poster is a single 3840 × 1080 canvas. The moving text continues across the centre seam.</div>
     </section>
   </main>
 
-  <main id="wallView" class="wall-view hidden">
-    <div id="viewport" class="viewport">
+  <main id="posterView" class="poster-view hidden" aria-label="IRHS Tech Club digital poster">
+    <div class="viewport">
       <div id="stage" class="stage">
-        <div class="grid"></div>
-        <div class="orb orb-a"></div><div class="orb orb-b"></div>
-        <section class="display-content">
-          <div class="wall-heading">
-            <span>IROQUOIS RIDGE HIGH SCHOOL</span>
-            <h1>TECH CLUB</h1>
-            <p>Scan. Follow. Join. Build.</p>
+        <div class="ambient ambient-a"></div>
+        <div class="ambient ambient-b"></div>
+        <div class="micro-grid"></div>
+        <div class="scanlines"></div>
+
+        <header class="poster-header">
+          <div class="school-line"><span>IROQUOIS RIDGE HIGH SCHOOL</span><i></i><span>TECHNOLOGY CLUB</span></div>
+          <div class="hero-lockup">
+            <div class="hero-prefix">IRHS</div>
+            <h1>TECH<br>CLUB</h1>
+            <div class="hero-copy">
+              <p>MOD.</p><p>BUILD.</p><p>REPAIR.</p><p>CREATE.</p>
+            </div>
           </div>
-          <div id="qrGrid" class="qr-grid"></div>
+        </header>
+
+        <section class="left-zone">
+          <div class="section-tag">01 // FOLLOW THE BUILD</div>
+          <div class="social-feature">
+            <div class="qr-frame qr-instagram"><img id="instagramQr" alt="Instagram QR code" /></div>
+            <div class="social-copy">
+              <span>INSTAGRAM</span>
+              <strong>@irhs_tech.club</strong>
+              <p>Projects, builds, events, behind-the-scenes and club updates.</p>
+            </div>
+          </div>
+
+          <div class="explore-card">
+            <div class="section-tag">WHAT WE EXPLORE</div>
+            <div class="explore-grid">
+              <span>PHONES</span><span>PCs</span><span>PERIPHERALS</span><span>CONSOLES</span>
+            </div>
+          </div>
         </section>
-        <div class="ticker-shell top-ticker"><div id="tickerTop" class="ticker-track"></div></div>
-        <div class="ticker-shell bottom-ticker"><div id="tickerBottom" class="ticker-track"></div></div>
-        <div id="seamGuide" class="seam-guide"><span>SCREEN SEAM</span></div>
+
+        <section class="right-zone">
+          <div class="section-tag">02 // JOIN THE CLUB</div>
+          <div class="join-grid">
+            <article class="join-card discord-card">
+              <div class="card-head"><span>DISCORD</span><b>LIVE CHAT</b></div>
+              <div id="discordQrWrap" class="qr-frame"><img id="discordQr" alt="Discord QR code" /></div>
+              <div id="discordMissing" class="missing-qr hidden">ADD DISCORD<br>INVITE IN<br><b>config.js</b></div>
+              <p>Scan to join the community.</p>
+            </article>
+            <article class="join-card website-card">
+              <div class="card-head"><span>WEBSITE</span><b>EXPLORE</b></div>
+              <div class="qr-frame"><img id="websiteQr" alt="Website QR code" /></div>
+              <p>See more from IRHS Tech Club.</p>
+            </article>
+          </div>
+
+          <div class="meeting-card">
+            <div>
+              <span class="mini-label">MEET US</span>
+              <strong>WEDNESDAYS<br>AT LUNCH</strong>
+            </div>
+            <div class="room-box"><span>ROOM</span><b>228</b></div>
+            <div class="advisor-box"><span>ADVISOR</span><b>MR. QUESNELLE</b></div>
+          </div>
+        </section>
+
+        <div class="centre-mark" aria-hidden="true"><span>01</span><i></i><span>02</span></div>
+
+        <div class="ticker ticker-mid">
+          <div id="tickerMid" class="ticker-track"></div>
+        </div>
+        <div class="ticker ticker-bottom">
+          <div id="tickerBottom" class="ticker-track inverse"></div>
+        </div>
+
+        <div class="corner tl">IRHS_TC / 2026</div>
+        <div class="corner tr">SCAN • FOLLOW • JOIN</div>
       </div>
     </div>
 
-    <div id="connectionBadge" class="connection-badge"><span></span><b>CONNECTING</b></div>
-    <button id="toggleControlsBtn" class="floating-control" title="Controls">⌘</button>
+    <button id="fullscreenButton" class="fullscreen-button">FULLSCREEN</button>
+    <button id="exitButton" class="exit-button" title="Choose screen again">×</button>
+    <div id="sideBadge" class="side-badge"></div>
 
-    <aside id="controlPanel" class="control-panel">
-      <div class="panel-head">
-        <div><small>DISPLAY CONTROL</small><h2 id="roleTitle">LEFT SCREEN</h2></div>
-        <button id="closeControlsBtn" class="icon-btn">×</button>
-      </div>
-
-      <div class="room-card"><div><small>ROOM CODE</small><strong id="roomCodeLabel">------</strong></div><button id="copyRoomBtn" class="mini-btn">COPY</button></div>
-
-      <div id="hostControls">
-        <div class="control-block">
-          <label for="tickerText">MOVING TEXT</label>
-          <textarea id="tickerText" rows="3">FOLLOW @IRHS_TECH.CLUB  •  JOIN OUR DISCORD  •  BUILD SOMETHING COOL  •  WEDNESDAYS AT LUNCH  •  IRHS TECH CLUB</textarea>
-        </div>
-        <div class="two-col control-block">
-          <div><label for="tickerSpeed">TEXT SPEED</label><input id="tickerSpeed" type="range" min="12" max="60" value="28" /></div>
-          <div><label for="cardScale">QR SIZE</label><input id="cardScale" type="range" min="70" max="125" value="100" /></div>
-        </div>
-
-        <div class="control-block">
-          <label for="instagramUrl">INSTAGRAM QR</label>
-          <input id="instagramUrl" type="url" value="https://www.instagram.com/irhs_tech.club/" />
-          <small>@irhs_tech.club</small>
-        </div>
-        <div class="control-block">
-          <label for="discordUrl">DISCORD QR</label>
-          <input id="discordUrl" type="url" placeholder="Paste the Tech Club Discord invite here" />
-          <small>Paste the exact invite once; both laptops update together.</small>
-        </div>
-        <div class="control-block">
-          <label for="websiteUrl">WEBSITE QR</label>
-          <input id="websiteUrl" type="url" value="https://irhs-tech-club.vercel.app/" />
-          <small>The Google Classroom QR is intentionally excluded.</small>
-        </div>
-      </div>
-
-      <div class="control-block">
-        <label>THIS SCREEN ALIGNMENT</label>
-        <div class="two-col">
-          <div><label for="nudgeX">X NUDGE</label><input id="nudgeX" type="range" min="-180" max="180" value="0" /></div>
-          <div><label for="nudgeY">Y NUDGE</label><input id="nudgeY" type="range" min="-120" max="120" value="0" /></div>
-        </div>
-        <div class="two-col buttons-row"><button id="toggleFitBtn" class="mini-btn">FIT: CONTAIN</button><button id="toggleGuideBtn" class="mini-btn">SEAM: ON</button></div>
-      </div>
-
-      <div class="panel-actions">
-        <button id="fullscreenBtn" class="btn primary">Enter fullscreen</button>
-        <button id="leaveBtn" class="btn ghost">Leave room</button>
-      </div>
+    <aside id="calibration" class="calibration hidden">
+      <div><strong>DISPLAY ALIGNMENT</strong><button id="closeCalibration">×</button></div>
+      <label>X OFFSET <input id="nudgeX" type="range" min="-180" max="180" value="0"></label>
+      <label>Y OFFSET <input id="nudgeY" type="range" min="-120" max="120" value="0"></label>
+      <label>SCALE <input id="zoom" type="range" min="90" max="110" value="100"></label>
+      <p>Press <b>C</b> to show/hide this panel. Offsets are saved only on this laptop.</p>
     </aside>
   </main>
 
-  <script src="https://unpkg.com/peerjs@1.5.5/dist/peerjs.min.js"></script>
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

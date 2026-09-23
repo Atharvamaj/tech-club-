@@ -1,34 +1,66 @@
-# IRHS Tech Club Dual-Screen Social Wall
+# IRHS Tech Club — Two-Laptop Digital Poster Board
 
-A static GitHub Pages site that turns two laptop browsers into one synchronized 3840×1080 display.
+A static GitHub Pages poster wall designed to span two 16:9 laptop screens.
 
-## What it shows
+## What this version is
 
-- Instagram QR: `@irhs_tech.club`
-- Discord QR: paste the current invite into the LEFT-screen control panel
-- Tech Club website QR
-- Google Classroom is intentionally **not displayed**
-- Moving text runs continuously across the full two-laptop canvas
+This is **not a dashboard**. It is a club showcase / digital poster board:
 
-## Use it
+- One 3840×1080 poster split across two laptops
+- Laptop 1 shows the left half; Laptop 2 shows the right half
+- A moving ticker travels continuously through both screens
+- Instagram QR, Discord QR, and website QR
+- Google Classroom is intentionally not shown
+- Tech Club meeting information and club focus are part of the poster
+- No server, database, Node build, or Vercel required
 
-1. Open the GitHub Pages URL on laptop 1 and choose **Create LEFT screen**.
-2. Open the same URL on laptop 2 and choose **Join as RIGHT screen**.
-3. Enter the six-character room code.
-4. On the left laptop, paste the current Discord invite if needed.
-5. Press fullscreen on both laptops.
-6. Put the laptops side-by-side and use X/Y nudge to align the seam.
-7. Press `H` to hide/show controls and `F` for fullscreen.
+## Add the Discord invite
 
-## Publish on GitHub Pages
+Open `config.js` and paste the real Tech Club invite:
 
-1. Create a GitHub repository and upload all files in this folder.
-2. Make sure the default branch is `main`.
-3. In **Settings → Pages**, set **Source** to **GitHub Actions**.
-4. Push to `main`. The included `.github/workflows/pages.yml` deploys the site automatically.
+```js
+discordUrl: "https://discord.gg/YOUR_INVITE_HERE",
+```
 
-There is no build step and no Vercel configuration.
+Do not use another club's Discord link.
 
-## Editing the default links
+## Run it
 
-Open `app.js` and edit the `state` object near the top. The Instagram and website links are already filled in. You can also paste the Discord URL live from the left-screen control panel without changing the code.
+Open the same site on both laptops.
+
+- On laptop 1 choose **LEFT HALF**
+- On laptop 2 choose **RIGHT HALF**
+- Put the screens beside each other
+- Enter fullscreen
+
+Direct URLs also work:
+
+- `https://YOURNAME.github.io/YOUR-REPO/?screen=left`
+- `https://YOURNAME.github.io/YOUR-REPO/?screen=right`
+
+The moving text is driven by the current clock, so both laptops stay visually aligned without a room code or backend.
+
+## Alignment
+
+Press **C** on either laptop to open hidden alignment controls. Adjust X/Y and Scale until the centre seam looks continuous. Each laptop saves its own calibration in local storage.
+
+Press **F** to toggle fullscreen.
+
+## GitHub Pages
+
+1. Create a public GitHub repository.
+2. Upload all files from this folder to the repository root.
+3. Go to **Settings → Pages**.
+4. Under **Build and deployment**, choose **Deploy from a branch**.
+5. Choose `main` and `/ (root)`.
+6. Save.
+
+GitHub will publish the poster at `https://YOURNAME.github.io/YOUR-REPO/`.
+
+## Files
+
+- `index.html` — poster structure
+- `styles.css` — dual-screen poster design
+- `app.js` — screen slicing, fullscreen, synchronized ticker, calibration
+- `config.js` — links and moving text
+- `.nojekyll` — GitHub Pages helper
