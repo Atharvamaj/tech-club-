@@ -23,3 +23,11 @@
 .welcome-note{margin-top:44px}.welcome-note strong{font-size:39px;font-weight:700}.welcome-note p{font-size:27px;margin:12px 0 0;color:var(--lime)}
 .meeting-card{margin-top:44px}.meeting-card strong,.room-box span,.room-box b{font-size:43px}
 
+
+.hero-prefix{position:absolute;left:-70px;top:62px;margin:0;font-size:40px;letter-spacing:.12em;writing-mode:vertical-rl;transform:rotate(180deg)}
+.hero-lockup h1{margin-left:35px}.hero-copy{top:10px}
+.right-welcome{margin-top:22px;font-size:31px;font-weight:700;color:var(--cyan);letter-spacing:.015em}
+.october-web{opacity:.3;width:250px;height:250px}
+.october-pumpkin{position:absolute;left:1240px;top:150px;width:180px;height:170px;opacity:.7;pointer-events:none}.pumpkin-body{fill:#b55d2b}.pumpkin-stem{fill:#b5a57a}.pumpkin-face{fill:#f8d89d}
+.october-spider{position:absolute;left:3720px;top:0;width:70px;height:230px;fill:#e3c294;stroke:#e3c294;stroke-width:2;opacity:.4;pointer-events:none}
+.october-ghost{position:absolute;left:1640px;top:850px;width:95px;height:125px;opacity:.15;pointer-events:none}.october-ghost path{fill:#f6eedf}.october-ghost ellipse{fill:#181512}
