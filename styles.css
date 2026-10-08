@@ -44,3 +44,5 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-o
 
 .classroom-card .card-head span{font-size:24px;line-height:1.15}.classroom-card p{font-size:21px}.classroom-card p strong{color:var(--lime);font-family:'DM Mono',monospace}
 
+
+.meeting-card{grid-template-columns:1fr .6fr}.meeting-card .room-box{align-items:center}.classroom-card p{font-size:21px}
