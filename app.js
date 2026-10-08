@@ -7,6 +7,64 @@
   const params = new URLSearchParams(location.search);
   let side = params.get('screen');
   let raf = 0;
+  let wakeLock = null;
+  let wakePending = false;
+  let keepAwake = true;
+
+  function wakeStatus(text) {
+    $('wakeButton').textContent = text;
+    $('wakeButton').setAttribute('aria-pressed', String(keepAwake));
+  }
+
+  async function requestWakeLock() {
+    if (!keepAwake || wakeLock || wakePending || document.visibilityState !== 'visible' || !['left', 'right'].includes(side)) return;
+    if (!('wakeLock' in navigator)) {
+      wakeStatus('AWAKE MODE UNAVAILABLE');
+      $('wakeButton').title = 'Set your computer’s display sleep to Never while showing the poster.';
+      return;
+    }
+    wakePending = true;
+    try {
+      const lock = await navigator.wakeLock.request('screen');
+      if (!keepAwake || !['left', 'right'].includes(side)) {
+        await lock.release();
+        return;
+      }
+      wakeLock = lock;
+      wakeStatus('SCREEN STAYS AWAKE');
+      lock.addEventListener('release', () => {
+        if (wakeLock === lock) {
+          wakeLock = null;
+          wakeStatus(keepAwake ? 'RETRY AWAKE MODE' : 'KEEP SCREEN AWAKE');
+        }
+      });
+    } catch {
+      wakeStatus('RETRY AWAKE MODE');
+      $('wakeButton').title = 'The browser could not keep the screen awake. Click to retry or adjust display sleep settings.';
+    } finally {
+      wakePending = false;
+    }
+  }
+
+  async function releaseWakeLock() {
+    const lock = wakeLock;
+    wakeLock = null;
+    if (lock) { try { await lock.release(); } catch {} }
+  }
+
+  $('wakeButton').addEventListener('click', async () => {
+    if (wakeLock) {
+      keepAwake = false;
+      await releaseWakeLock();
+      wakeStatus('KEEP SCREEN AWAKE');
+    } else {
+      keepAwake = true;
+      await requestWakeLock();
+    }
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'visible') requestWakeLock();
+  });
 
   const saved = {
     x: Number(localStorage.getItem('irhs-poster-x') || 0),
@@ -31,16 +89,16 @@
   function setupQrCodes() {
     const instagram = safeUrl(config.instagramUrl);
     const discord = safeUrl(config.discordUrl);
-    const website = safeUrl(config.websiteUrl);
 
     if (instagram) $('instagramQr').src = qrUrl(instagram);
-    if (website) $('websiteQr').src = qrUrl(website);
 
     if (discord) {
+      $('discordCaption').textContent = 'Scan to join the community.';
       $('discordQr').src = qrUrl(discord);
       $('discordQrWrap').classList.remove('hidden');
       $('discordMissing').classList.add('hidden');
     } else {
+      $('discordCaption').textContent = 'Meet the team on Tuesday at lunch.';
       $('discordQrWrap').classList.add('hidden');
       $('discordMissing').classList.remove('hidden');
     }
@@ -63,8 +121,8 @@
 
     const mid = $('tickerMid');
     const bottom = $('tickerBottom');
-    const cycleMid = mid.firstElementChild ? mid.firstElementChild.getBoundingClientRect().width : 3200;
-    const cycleBottom = bottom.firstElementChild ? bottom.firstElementChild.getBoundingClientRect().width : 3200;
+    const cycleMid = mid.firstElementChild ? mid.firstElementChild.offsetWidth : 3200;
+    const cycleBottom = bottom.firstElementChild ? bottom.firstElementChild.offsetWidth : 3200;
 
     const x1 = -((nowSeconds * speed) % Math.max(cycleMid, 1));
     const x2 = -cycleBottom + ((nowSeconds * speed * 0.78) % Math.max(cycleBottom, 1));
@@ -91,7 +149,11 @@
 
   function showPoster(chosenSide, pushUrl = true) {
     side = chosenSide;
-    if (pushUrl) history.replaceState({}, '', `${location.pathname}?screen=${side}`);
+    if (pushUrl) {
+      const url = new URL(location.href);
+      url.searchParams.set('screen', side);
+      history.replaceState({}, '', url);
+    }
     $('launcher').classList.add('hidden');
     $('posterView').classList.remove('hidden');
     $('sideBadge').textContent = side === 'left' ? 'LAPTOP 01 • LEFT' : 'LAPTOP 02 • RIGHT';
@@ -101,6 +163,7 @@
     cancelAnimationFrame(raf);
     animateTickers();
     layoutStage();
+    requestWakeLock();
 
     setTimeout(() => {
       $('sideBadge').classList.add('fade');
@@ -127,6 +190,10 @@
   $('fullscreenButton').addEventListener('click', requestFullscreen);
   $('exitButton').addEventListener('click', () => {
     cancelAnimationFrame(raf);
+    side = null;
+    releaseWakeLock();
+    wakeStatus('KEEP SCREEN AWAKE');
+    $('calibration').classList.add('hidden');
     history.replaceState({}, '', location.pathname);
     $('posterView').classList.add('hidden');
     $('launcher').classList.remove('hidden');
@@ -162,6 +229,7 @@
   });
 
   addEventListener('keydown', (event) => {
+    if (event.target.matches('input, textarea, select') || !['left', 'right'].includes(side)) return;
     const key = event.key.toLowerCase();
     if (key === 'f') requestFullscreen();
     if (key === 'c') $('calibration').classList.toggle('hidden');
@@ -170,3 +238,4 @@
 
   if (side === 'left' || side === 'right') showPoster(side, false);
 })();
+

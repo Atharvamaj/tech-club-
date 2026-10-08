@@ -9,7 +9,7 @@ This is **not a dashboard**. It is a club showcase / digital poster board:
 - One 3840×1080 poster split across two laptops
 - Laptop 1 shows the left half; Laptop 2 shows the right half
 - A moving ticker travels continuously through both screens
-- Instagram QR, Discord QR, and website QR
+- Instagram QR and Discord QR, with a welcoming introduction for new members
 - Google Classroom is intentionally not shown
 - Tech Club meeting information and club focus are part of the poster
 - No server, database, Node build, or Vercel required
@@ -38,6 +38,8 @@ Direct URLs also work:
 - `https://YOURNAME.github.io/YOUR-REPO/?screen=left`
 - `https://YOURNAME.github.io/YOUR-REPO/?screen=right`
 
+Meeting information fits above the bottom ticker on both displays. If the Discord invite is not configured, the poster asks visitors to speak with the team.
+
 The moving text is driven by the current clock, so both laptops stay visually aligned without a room code or backend.
 
 ## Alignment
@@ -64,3 +66,9 @@ GitHub will publish the poster at `https://YOURNAME.github.io/YOUR-REPO/`.
 - `app.js` — screen slicing, fullscreen, synchronized ticker, calibration
 - `config.js` — links and moving text
 - `.nojekyll` — GitHub Pages helper
+
+## Poster content and awake mode
+
+Meetings: Tuesdays at lunch, Room 131. Activities: 3D printing, ESP32 projects, and computer teardowns.
+
+The poster requests a screen wake lock automatically on supported browsers over HTTPS. The button shows SCREEN STAYS AWAKE when active and lets you turn it off. It reacquires the lock when you return to the poster tab, and releases it when you exit the poster. Keep the tab visible; system power settings or low battery can reject the request. If unavailable, temporarily set display sleep to Never in your computer settings.

@@ -6,9 +6,8 @@ window.IRHS_POSTER_CONFIG = {
   // Example format: https://discord.gg/yourInvite
   discordUrl: "",
 
-  websiteUrl: "https://irhs-tech-club.vercel.app/",
-
-  tickerText: "IRHS TECH CLUB  •  MOD TECH  •  BUILD SOMETHING  •  WEDNESDAYS AT LUNCH  •  ROOM 228  •  @IRHS_TECH.CLUB  •  JOIN THE DISCORD  •  PHONES  •  PCs  •  PERIPHERALS  •  CONSOLES",
+  tickerText: "IRHS TECH CLUB  •  MOD TECH  •  BUILD SOMETHING  •  TUESDAYS AT LUNCH  •  ROOM 131  •  @IRHS_TECH.CLUB  •  JOIN THE DISCORD  •  3D PRINTING  •  ESP32 PROJECTS  •  COMPUTER TEARDOWNS",
 
   tickerSpeedPxPerSecond: 125
 };
+
