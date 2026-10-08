@@ -1,5 +1,7 @@
 // Edit only this file when links or poster copy change.
 window.IRHS_POSTER_CONFIG = {
+  classroomUrl: "https://classroom.google.com/c?cjc=6iepwule",
+
   instagramUrl: "https://www.instagram.com/irhs.technology/",
 
   // Paste the real Tech Club Discord invite between the quotes.
