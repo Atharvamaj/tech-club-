@@ -12,3 +12,14 @@
 .fullscreen-button,.exit-button,.side-badge,.wake-button{position:fixed;z-index:60;background:#181512e6;border:1px solid #ffffff30;color:var(--paper);font-size:11px;padding:12px}.fullscreen-button{right:20px;bottom:20px}.exit-button{right:20px;top:20px}.wake-button{right:155px;bottom:20px;color:var(--cyan)}.side-badge{left:20px;bottom:20px}.fade{opacity:.08}.fullscreen-button:hover,.exit-button:hover{opacity:1}
 .calibration{position:fixed;right:20px;top:75px;z-index:80;background:#211b16;border:1px solid #ffffff30;width:340px;padding:20px}.calibration>div{display:flex;justify-content:space-between;align-items:center}.calibration label{display:block;margin:20px 0;font-size:12px}.calibration input{display:block;width:100%;margin-top:10px}.calibration output{display:block;margin-top:6px;color:var(--cyan)}.calibration p{font-size:13px;line-height:1.4}.calibration button{background:none;color:var(--paper);border:1px solid #ffffff40;padding:8px}
 @media(max-width:700px){.side-buttons{flex-direction:column;gap:10px}.launcher p{font-size:16px}.launcher-card{padding:15px}}
+
+.hero-lockup h1{font-size:170px;line-height:.82}
+.hero-copy{top:10px;width:1560px;display:flex;flex-direction:column;gap:22px}
+.project-detail h2{font-size:42px;line-height:1.1;letter-spacing:-.025em;color:var(--cyan);margin:0 0 8px}
+.project-detail p{font-size:27px;line-height:1.3;font-weight:400;letter-spacing:0;color:var(--paper);margin:0}
+.ticker-mid{top:465px;height:64px}
+.left-zone,.right-zone{top:575px}
+.social-copy p{font-size:33px;line-height:1.45;color:var(--paper);margin:25px 0 0}
+.welcome-note{margin-top:44px}.welcome-note strong{font-size:39px;font-weight:700}.welcome-note p{font-size:27px;margin:12px 0 0;color:var(--lime)}
+.meeting-card{margin-top:44px}.meeting-card strong,.room-box span,.room-box b{font-size:43px}
+
