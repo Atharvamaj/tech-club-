@@ -47,18 +47,3 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-o
 
 .meeting-card{grid-template-columns:1fr .6fr}.meeting-card .room-box{align-items:center}.classroom-card p{font-size:21px}
 
-/* October accents; QR codes retain white quiet zones. */
-:root{--cyan:#ffad66;--lime:#e6b0ff;--violet:#ad78ed}
-.stage{background:radial-gradient(ellipse at 8% 12%,#382014 0,transparent 40%),radial-gradient(ellipse at 94% 75%,#291a42 0,transparent 38%),#09080e}
-.micro-grid{background-image:linear-gradient(#ffad660b 1px,transparent 1px),linear-gradient(90deg,#ffad660b 1px,transparent 1px)}
-.ambient-a{background:#ef8737}.ambient-b{background:#9850cc}
-.ticker-mid{background:#ffad66;color:#1b1009}.ticker-bottom{background:#d5b0f5;color:#180e25}
-.social-feature,.join-card{background:#14101ce8;border-color:#d5b0f52b}
-.explore-grid span{background:#17111f;border-color:#d5b0f52b}
-.meeting-card{background:#f4e7d9;color:#1b1009}
-.october-web{position:absolute;width:245px;height:245px;fill:none;stroke:#debdea;stroke-width:1.5;opacity:.19;pointer-events:none}
-.web-left{top:0;left:0}.web-right{top:0;right:0;transform:scaleX(-1)}
-.october-moon{position:absolute;left:1475px;top:124px;width:180px;height:180px;border-radius:50%;background:#ffad66;opacity:.25;box-shadow:0 0 80px #ff873733;pointer-events:none}
-.october-moon:after{content:"";position:absolute;left:45px;top:-18px;width:170px;height:170px;border-radius:50%;background:#09080e}
-.october-bats{position:absolute;left:1500px;top:200px;width:280px;height:130px;fill:#ad78ed;opacity:.6;pointer-events:none}
-.wake-button{border-color:#ffad6655;color:var(--cyan)}.side-buttons button:hover{background:#241622}
