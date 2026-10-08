@@ -1,6 +1,6 @@
 // Edit only this file when links or poster copy change.
 window.IRHS_POSTER_CONFIG = {
-  classroomUrl: "https://classroom.google.com/c?cjc=6iepwule",
+  classroomUrl: "https://classroom.google.com/c/ODkwMDIwOTE0NTQ2?cjc=6iepwule",
 
   instagramUrl: "https://www.instagram.com/irhs.technology/",
 
