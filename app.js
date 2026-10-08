@@ -95,12 +95,12 @@
     if (instagram) $('instagramQr').src = qrUrl(instagram);
 
     if (discord) {
-      $('discordCaption').textContent = 'Scan to join the community.';
+      $('discordCaption').textContent = 'Scan to join.';
       $('discordQr').src = qrUrl(discord);
       $('discordQrWrap').classList.remove('hidden');
       $('discordMissing').classList.add('hidden');
     } else {
-      $('discordCaption').textContent = 'Meet the team on Tuesday at lunch.';
+      $('discordCaption').textContent = 'Tuesdays • Lunch • Room 131';
       $('discordQrWrap').classList.add('hidden');
       $('discordMissing').classList.remove('hidden');
     }
