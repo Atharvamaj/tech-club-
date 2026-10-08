@@ -8,7 +8,7 @@ window.IRHS_POSTER_CONFIG = {
   // Example format: https://discord.gg/yourInvite
   discordUrl: "",
 
-  tickerText: "IRHS TECH CLUB  •  MOD TECH  •  BUILD SOMETHING  •  TUESDAYS AT LUNCH  •  ROOM 131  •  @IRHS.TECHNOLOGY  •  JOIN THE DISCORD  •  3D PRINTING  •  ESP32 PROJECTS  •  COMPUTER TEARDOWNS",
+  tickerText: "IRHS TECH CLUB  •  TUESDAYS AT LUNCH  •  ROOM 131  •  @IRHS.TECHNOLOGY  •  3D PRINTING  •  ESP32 PROJECTS  •  COMPUTER TEARDOWNS",
 
   tickerSpeedPxPerSecond: 125
 };
