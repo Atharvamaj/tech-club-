@@ -72,3 +72,4 @@ GitHub will publish the poster at `https://YOURNAME.github.io/YOUR-REPO/`.
 Meetings: Tuesdays at lunch, Room 131. Activities: 3D printing, ESP32 projects, and computer teardowns.
 
 The poster requests a screen wake lock automatically on supported browsers over HTTPS. The button shows SCREEN STAYS AWAKE when active and lets you turn it off. It reacquires the lock when you return to the poster tab, and releases it when you exit the poster. Keep the tab visible; system power settings or low battery can reject the request. If unavailable, temporarily set display sleep to Never in your computer settings.
+

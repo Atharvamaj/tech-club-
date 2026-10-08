@@ -13,3 +13,4 @@ window.IRHS_POSTER_CONFIG = {
   tickerSpeedPxPerSecond: 125
 };
 
+

@@ -43,3 +43,4 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-o
 @media(prefers-reduced-motion:reduce){.ticker-track{transform:none!important}.side-buttons button{transition:none}}
 
 .classroom-card .card-head span{font-size:24px;line-height:1.15}.classroom-card p{font-size:21px}.classroom-card p strong{color:var(--lime);font-family:'DM Mono',monospace}
+
