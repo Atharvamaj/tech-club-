@@ -6,7 +6,7 @@ window.IRHS_POSTER_CONFIG = {
 
   // Paste the real Tech Club Discord invite between the quotes.
   // Example format: https://discord.gg/yourInvite
-  discordUrl: "",
+  discordUrl: "https://discord.gg/eJXv5R6YJy",
 
   tickerText: "IRHS TECH CLUB  •  TUESDAYS AT LUNCH  •  ROOM 131  •  @IRHS.TECHNOLOGY  •  3D PRINTING  •  ESP32 PROJECTS  •  COMPUTER TEARDOWNS",
 
