@@ -87,6 +87,8 @@
   }
 
   function setupQrCodes() {
+    const classroom = safeUrl(config.classroomUrl);
+    if (classroom) $('classroomQr').src = qrUrl(classroom);
     const instagram = safeUrl(config.instagramUrl);
     const discord = safeUrl(config.discordUrl);
 
