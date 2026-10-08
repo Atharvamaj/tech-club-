@@ -31,3 +31,7 @@
 .october-pumpkin{position:absolute;left:1240px;top:150px;width:180px;height:170px;opacity:.7;pointer-events:none}.pumpkin-body{fill:#b55d2b}.pumpkin-stem{fill:#b5a57a}.pumpkin-face{fill:#f8d89d}
 .october-spider{position:absolute;left:3720px;top:0;width:70px;height:230px;fill:#e3c294;stroke:#e3c294;stroke-width:2;opacity:.4;pointer-events:none}
 .october-ghost{position:absolute;left:1640px;top:850px;width:95px;height:125px;opacity:.15;pointer-events:none}.october-ghost path{fill:#f6eedf}.october-ghost ellipse{fill:#181512}
+
+.join-panel{margin-top:30px}.join-panel label{display:block;margin-bottom:12px;font-size:18px}.join-panel>div{display:flex;gap:18px}.join-panel input{width:230px;background:none;border:0;border-bottom:2px solid var(--cyan);color:var(--paper);padding:12px;font-size:30px;text-transform:uppercase;letter-spacing:.15em}.join-panel button{background:none;color:var(--cyan);border:0;font-weight:700;font-size:20px}.join-panel p{font-size:15px;color:var(--cyan)}.pair-info{position:fixed;left:20px;top:20px;z-index:65;background:#181512e6;color:var(--cyan);border:0;padding:10px;font-size:13px}.pair-info #roomCodeLabel{font-weight:700;letter-spacing:.1em}
+
+.hero-copy{gap:14px}.project-detail h2{font-size:34px;line-height:1.1;margin-bottom:6px}.project-detail p{font-size:24px;line-height:1.25}

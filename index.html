@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#030405" />
   <meta name="description" content="IRHS Tech Club two-laptop digital poster board." />
   <title>IRHS Tech Club // Poster Wall</title>
-  <link rel="stylesheet" href="styles.css?v=20261008-october2" />
+  <link rel="stylesheet" href="styles.css?v=20261008-paired" />
 </head>
 <body>
   <main id="launcher" class="launcher">
@@ -14,12 +14,12 @@
     <section class="launcher-card">
       
       <h1>Two laptops.<br><span>One club poster.</span></h1>
-      <p>Put the laptops side-by-side. Open this page on both. Choose LEFT on laptop 1 and RIGHT on laptop 2.</p>
+      <p>Put the laptops side-by-side. Open this page on both. Create a room on the left laptop. Enter its code on the right laptop.</p>
       <div class="side-buttons">
-        <button data-side="left"><small>LAPTOP 01</small><strong>LEFT HALF</strong></button>
-        <button data-side="right"><small>LAPTOP 02</small><strong>RIGHT HALF</strong></button>
+        <button id="createRoomBtn"><small>LAPTOP 01</small><strong>CREATE LEFT SCREEN</strong></button>
+        <button id="showJoinBtn"><small>LAPTOP 02</small><strong>JOIN RIGHT SCREEN</strong></button>
       </div>
-      
+      <form id="joinPanel" class="join-panel hidden"><label for="roomInput">Room code from the left laptop</label><div><input id="roomInput" maxlength="6" placeholder="A7K2Q9" autocomplete="off" spellcheck="false" required><button type="submit">JOIN</button></div><p id="joinError" role="alert"></p></form>
     </section>
   </main>
 
@@ -44,9 +44,10 @@
             <div class="hero-prefix">IRHS</div>
             <h1>TECH<br>CLUB</h1>
             <div class="hero-copy">
-              <div class="project-detail"><h2>3D PRINTING</h2><p>Design a part. Print it. Test the fit.</p></div>
-              <div class="project-detail"><h2>ESP32 PROJECTS</h2><p>Wire sensors. Write code. Bring ideas to life.</p></div>
-              <div class="project-detail"><h2>COMPUTER TEARDOWNS</h2><p>Open a PC. Identify parts. Learn how it works.</p></div>
+              <div class="project-detail"><h2>3D PRINTING</h2><p>Design and print keychains, model cars, and your own creations.</p></div>
+              <div class="project-detail"><h2>MICROCONTROLLERS</h2><p>Learn to code microcontrollers and build hands-on projects.</p></div>
+              <div class="project-detail"><h2>COMPUTER TEARDOWNS</h2><p>Take computers apart, put them back together, and learn about each component.</p></div>
+              <div class="project-detail"><h2>PORTFOLIO WEBSITES</h2><p>Build your own portfolio website with AI.</p></div>
             </div>
           </div>
         </header>
@@ -110,6 +111,7 @@
     <button id="fullscreenButton" class="fullscreen-button">FULLSCREEN</button>
     <button id="exitButton" class="exit-button" title="Choose screen again" aria-label="Choose screen again">×</button>
     <div id="sideBadge" class="side-badge"></div>
+    <button id="pairInfo" class="pair-info"><span id="roomCodeLabel"></span> <span id="connectionStatus"></span></button>
 
     <aside id="calibration" class="calibration hidden">
       <div><strong>DISPLAY ALIGNMENT</strong><button id="closeCalibration" aria-label="Close alignment controls">×</button></div>
@@ -120,8 +122,9 @@
     </aside>
   </main>
 
-  <script src="config.js?v=20261008-october2"></script>
-  <script src="app.js?v=20261008-october2"></script>
+  <script src="vendor/peerjs.min.js"></script>
+  <script src="config.js?v=20261008-paired"></script>
+  <script src="app.js?v=20261008-paired"></script>
 </body>
 </html>
 
