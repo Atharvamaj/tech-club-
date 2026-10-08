@@ -63,3 +63,13 @@ button:focus-visible,input:focus-visible{outline:3px solid var(--lime);outline-o
 .october-bats{position:absolute;left:1500px;top:200px;width:280px;height:130px;fill:#ad78ed;opacity:.6;pointer-events:none}
 .wake-button{border-color:#ffad6655;color:var(--cyan)}.side-buttons button:hover{background:#241622}
 
+
+/* A little more Halloween atmosphere, away from the scan areas. */
+.october-web{width:310px;height:310px;opacity:.3}
+.october-moon{opacity:.4;box-shadow:0 0 90px #ff873755}
+.october-bats{opacity:.85}
+.extra-bats{left:3310px;top:265px;width:300px;height:115px;transform:rotate(-9deg);opacity:.65}
+.october-pumpkin{position:absolute;left:1190px;top:180px;width:190px;height:180px;pointer-events:none;filter:drop-shadow(0 0 22px #ff792b55)}
+.pumpkin-stem{fill:#8d9963}.pumpkin-body{fill:#d76b25}.pumpkin-ribs{fill:none;stroke:#743718;stroke-width:3;opacity:.4}.pumpkin-face{fill:#ffe4a0;filter:drop-shadow(0 0 7px #ffc16b)}
+.october-spider{position:absolute;left:3650px;top:0;width:80px;height:245px;fill:#bba1d4;stroke:#bba1d4;stroke-width:2;pointer-events:none;opacity:.6}
+.hero-lockup h1{text-shadow:0 0 45px #ff87371c}
